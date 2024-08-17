@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Navbar, Sidebar, Footer } from './components'
-//325 About, Checkout Page
+//327 Home Page - Services
 import {Home,Products, SingleProduct, Cart, Checkout, About, PrivateRoute, Error } from './pages';
 
 function App() {
