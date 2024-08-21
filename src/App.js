@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Navbar, Sidebar, Footer } from './components'
-//335 Fetch Single Product
+//337 Single Product - Base Return
 import {Home,Products, SingleProduct, Cart, Checkout, About, PrivateRoute, Error } from './pages';
 
 function App() {
