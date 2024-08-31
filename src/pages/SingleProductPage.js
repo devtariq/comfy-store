@@ -51,7 +51,7 @@ const SingleProductPage = () => {
         <Link to='/products' className='btn'>
           back to products
         </Link>
-        <div className='products-center'>
+        <div className='product-center'>
           <ProductImages images={images} />
           <div className='content'>
             <h2>{name}</h2>
@@ -70,9 +70,9 @@ const SingleProductPage = () => {
               <span>Brand :</span>
               {company}
             </p>
+            <hr />
+            {stock > 0 && <AddToCart product={product} />}
           </div>
-
-          <hr />
         </div>
       </section>
     </Wrapper>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Navbar, Sidebar, Footer } from './components'
-//341 Single Product - Add To Cart - Colors
+//346 Sort Component - Basic Setup
 import {Home,Products, SingleProduct, Cart, Checkout, About, PrivateRoute, Error } from './pages';
 
 function App() {
