@@ -1,12 +1,49 @@
-import React from 'react'
-import styled from 'styled-components'
-import { useFilterContext } from '../context/filter_context'
-import { getUniqueValues, formatPrice } from '../utils/helpers'
-import { FaCheck } from 'react-icons/fa'
+import React from 'react';
+import styled from 'styled-components';
+import {useFilterContext} from '../context/filter_context';
+import {getUniqueValues, formatPrice} from '../utils/helpers';
+import {FaCheck} from 'react-icons/fa';
 
 const Filters = () => {
-  return <h4>filters</h4>
-}
+  const {
+    filters: {text, color, price, category, company, shipping, min_price, max_price},
+    updateFilters,
+    clearFilters,
+    all_products,
+  } = useFilterContext();
+  const categories = getUniqueValues(all_products, 'category');
+  const companies = getUniqueValues(all_products, 'company');
+  const colors = getUniqueValues(all_products, 'colors');
+
+  console.log(colors);
+  return (
+    <Wrapper>
+      <h2>filter</h2>
+      <form onSubmit={(e) => e.preventDefault()}>
+        <div className="form-control">
+          <input className='search-input' type="text" name='text' value={text} onChange={updateFilters} placeholder='Search' />
+        </div> 
+        {/* End Search Input */}
+        <div className="form-control">
+          <h5>Categories</h5>
+          <div>
+            {categories.map( (cat, index) => {
+              return <button key={index} className={`${category === cat.toLowerCase() ? 'active' : null}`} name='category' onClick={updateFilters}>{cat}</button>
+            })}
+          </div>
+        </div>
+        <div className="form-control">
+          <h5>Company</h5>
+          <select name={company} id="company" onChange={updateFilters} className='company'>
+            {companies.map( (company, index) => {
+              return <option key={index} value={company}>{company}</option>
+            } )}
+          </select>
+        </div>
+      </form>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.section`
   .form-control {
@@ -106,6 +143,6 @@ const Wrapper = styled.section`
       top: 1rem;
     }
   }
-`
+`;
 
-export default Filters
+export default Filters;
