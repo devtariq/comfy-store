@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Navbar, Sidebar, Footer } from './components'
-//358 Filter Functionality - Setup and Text Input
+//365 localStorage
 import {Home,Products, SingleProduct, Cart, Checkout, About, PrivateRoute, Error } from './pages';
 
 function App() {
