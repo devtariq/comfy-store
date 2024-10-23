@@ -13,12 +13,22 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <StrictMode>
-    <ProductsProvider>
-      <FilterProvider>
-        <CartProvider>
-          <App />
-        </CartProvider>
-      </FilterProvider>
-    </ProductsProvider>
+    <Auth0Provider
+      domain='dev-duimhjfliv8v771j.us.auth0.com'
+      clientId='pEVjAXnqmmftuhcHmP95IOFLT1tLTE7Y'
+      authorizationParams={{
+        redirect_uri: window.location.origin,
+      }}
+    >
+      <UserProvider>
+        <ProductsProvider>
+          <FilterProvider>
+            <CartProvider>
+              <App />
+            </CartProvider>
+          </FilterProvider>
+        </ProductsProvider>
+      </UserProvider>
+    </Auth0Provider>,
   </StrictMode>
 );

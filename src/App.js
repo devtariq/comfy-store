@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Navbar, Sidebar, Footer } from './components'
-//365 localStorage
+//383 Install Extra Packages
 import {Home,Products, SingleProduct, Cart, Checkout, About, PrivateRoute, Error } from './pages';
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
           <Products />
         </Route>
         <Route exact path="/products/:id" children ={<SingleProduct />} />
-        <Route exact path="/checkout"><Checkout /></Route>
+        <PrivateRoute exact path="/checkout"><Checkout /></PrivateRoute>
         <Route path="*"><Error /></Route>
       </Switch>
       <Footer />
