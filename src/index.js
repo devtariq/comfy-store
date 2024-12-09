@@ -14,11 +14,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <StrictMode>
     <Auth0Provider
-      domain='dev-duimhjfliv8v771j.us.auth0.com'
-      clientId='pEVjAXnqmmftuhcHmP95IOFLT1tLTE7Y'
-      authorizationParams={{
-        redirect_uri: window.location.origin,
-      }}
+      domain={process.env.REACT_APP_AUTH_DOMAIN}
+      clientId={process.env.REACT_APP_AUTH_CLIENT_ID}
+      redirectUri = {window.location.origin}
+      cacheLocation='localstorage'
     >
       <UserProvider>
         <ProductsProvider>
@@ -29,6 +28,7 @@ root.render(
           </FilterProvider>
         </ProductsProvider>
       </UserProvider>
-    </Auth0Provider>,
+    </Auth0Provider>
+    ,
   </StrictMode>
 );

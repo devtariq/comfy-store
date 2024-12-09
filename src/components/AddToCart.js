@@ -1,10 +1,37 @@
-import React, {useState} from 'react';
-import styled from 'styled-components';
-import {Link} from 'react-router-dom';
-import {FaCheck} from 'react-icons/fa';
-import {useCartContext} from '../context/cart_context';
+import React, {useState} from "react";
+import styled from "styled-components";
+import {Link} from "react-router-dom";
+import {FaCheck} from "react-icons/fa";
+import {useCartContext} from "../context/cart_context";
 
-import AmountButtons from './AmountButtons';
+import AmountButtons from "./AmountButtons";
+
+<div class='tema-info position-absolute p-3'>
+  <ul class='team-socials position-absolute list-unstyled'>
+    <li>
+      <a href='#'>
+        <i className='fa-brands fa-facebook'></i>
+      </a>
+    </li>
+    <li>
+      <a href='#'>
+        <i className='fa-brands fa-instagrame'></i>
+      </a>
+    </li>
+    <li>
+      <a href='#'>
+        <i className='fa-brands fa-twitter'></i>
+      </a>
+    </li>
+  </ul>
+  <div class='team-footer p-4 text-center'>
+    <div class='social-action position-absolute icon icon-sm bg-secondary rounded-circle text-white'>
+      <i class='fa-solid fa-share'></i>
+    </div>
+    <h3 class='display-4 mb-1'>Irv Christy </h3>
+    <span class='designation'>President, Timnath Ranch</span>
+  </div>
+</div>;
 
 const AddToCart = ({product}) => {
   const {addToCart} = useCartContext();
@@ -39,14 +66,7 @@ const AddToCart = ({product}) => {
         <div>
           {colors.map((color, index) => {
             return (
-              <button
-                key={index}
-                onClick={() => setMainColor(color)}
-                style={{background: color}}
-                className={
-                  mainColor === color ? 'color-btn active' : 'color-btn'
-                }
-              >
+              <button key={index} onClick={() => setMainColor(color)} style={{background: color}} className={mainColor === color ? "color-btn active" : "color-btn"}>
                 {mainColor === color ? <FaCheck /> : null}
               </button>
             );
@@ -54,12 +74,8 @@ const AddToCart = ({product}) => {
         </div>
       </div>
       <div className='btn-container'>
-        <AmountButtons
-          amount={amount}
-          increase={increase}
-          decrease={decrease}
-        />
-        <Link className='btn' to='/cart' onClick={() => addToCart(id,mainColor,amount,product)}>
+        <AmountButtons amount={amount} increase={increase} decrease={decrease} />
+        <Link className='btn' to='/cart' onClick={() => addToCart(id, mainColor, amount, product)}>
           Add to Cart
         </Link>
       </div>
